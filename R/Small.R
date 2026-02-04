@@ -731,7 +731,7 @@ get.GRCh <- function(genome = "hg19", genes = NULL, as.granges = FALSE) {
 #' This will output a list each TF motif and TFs that binding the motis. Multiple TFs may
 #' recognize a same motif such as TF family.  
 #' The association between each motif famil and transcription factor was created using the 
-#' (HOCOMOCO)[https://hocomoco11.autosome.org/human/mono?full=true] which TF structural families 
+#' (HOCOMOCO)[https://hocomoco14.autosome.org/human/mono?full=true] which TF structural families 
 #' was created according to TFClass [@wingender2014tfclass]
 #' This data is stored as a list whose elements 
 #' are motifs and contents for each element are TFs which recognize the same motif that
@@ -831,7 +831,7 @@ preAssociationProbeFiltering <- function(data, K = 0.3, percentage = 0.05){
 #' @importFrom rvest html_table
 getHocomocoTable <- function(){
   hocomoco <- tryCatch({
-    hocomoco <- "https://hocomoco11.autosome.org/human/mono?full=true" %>% read_html()  %>%  html_table()
+    hocomoco <- "https://hocomoco14.autosome.org/human/mono?full=true" %>% read_html()  %>%  html_table()
     hocomoco <- hocomoco[[1]]
   }, error = function(e) {
     getdata("hocomoco.table")
